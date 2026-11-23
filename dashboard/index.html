@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>New-Pair Radar — pre-token protocols ranked by implied value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<a class="skip" href="#board">Skip to the board</a>
+<header class="top">
+  <div class="brand">
+    <span class="pulse" aria-hidden="true"></span>
+    <div>
+      <h1>New-Pair Radar</h1>
+      <p class="tagline">Pre-token protocols, ranked by what their launch would be worth — new pairs first.</p>
+    </div>
+  </div>
+  <div class="meta" id="meta"></div>
+</header>
+<nav class="stats" id="stats" aria-label="Snapshot totals"></nav>
+<main id="board" tabindex="-1">
+  <section class="panel controls" id="controls" aria-label="Board controls">
+    <label class="field">Search
+      <input id="q" type="search" placeholder="Protocol name or slug…" autocomplete="off">
+    </label>
+    <label class="field">Chain
+      <select id="chain"><option value="">All chains</option></select>
+    </label>
+    <label class="field">Category
+      <select id="category"><option value="">All categories</option></select>
+    </label>
+    <label class="field">Sort by
+      <select id="sort">
+        <option value="value">Implied value</option>
+        <option value="tvl">TVL</option>
+        <option value="growth">7-day growth</option>
+        <option value="newest">Newest listed</option>
+      </select>
+    </label>
+    <label class="check"><input id="onlyNew" type="checkbox"> New pairs only</label>
+    <label class="check"><input id="onlyWatch" type="checkbox"> Watchlist only</label>
+    <button id="reset" type="button">Reset</button>
+  </section>
+  <section class="panel" id="boardPanel">
+    <div class="board-head">
+      <h2 id="boardTitle">The board</h2>
+      <p id="boardCount" class="muted"></p>
+    </div>
+    <div class="table-wrap">
+      <table id="table">
+        <thead>
+          <tr>
+            <th data-sort="value" class="num">#</th>
+            <th data-sort="name">Protocol</th>
+            <th data-sort="category">Category</th>
+            <th>Chains</th>
+            <th data-sort="tvl" class="num">TVL</th>
+            <th data-sort="growth" class="num">7d</th>
+            <th data-sort="newest" class="num">Age</th>
+            <th data-sort="value" class="num">Implied value</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <p id="empty" class="muted hidden">Nothing matches these filters. Clear the search or a filter to see the board again.</p>
+  </section>
+  <section class="panel" id="detail" aria-label="Protocol detail"></section>
+  <section class="panel" id="live" aria-label="Already trading"></section>
+  <section class="panel" id="method" aria-label="How the radar scores"></section>
+</main>
+<footer class="foot" id="foot"></footer>
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
